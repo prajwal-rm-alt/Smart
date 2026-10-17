@@ -2,6 +2,7 @@ import React from 'react';
 import { Presentation, WifiOff, Sun, Moon } from 'lucide-react';
 import { ActiveTab } from '../../types';
 import { PWAInstallButton } from '../common/PWAInstallButton';
+import { SalesBrandLogo } from '../common/SalesBrandLogo';
 import { useOnlineStatus } from '../../hooks/useOnlineStatus';
 
 interface GlassHeaderProps {
@@ -41,26 +42,12 @@ export const GlassHeader: React.FC<GlassHeaderProps> = ({
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-6 md:gap-8">
-        {/* Zone 1: Brand Wordmark in Playfair Display Luxury Editorial Serif */}
+        {/* Zone 1: Brand Wordmark with Glassmorphic Sales Logo */}
         <div
           onClick={() => setActiveTab('home')}
           className="flex items-center gap-3 cursor-pointer shrink-0 group select-none"
         >
-          <div
-            className={`w-8 h-8 sharp-pill p-0.5 border transition-all duration-300 group-hover:scale-105 shadow-lg ${
-              isDark
-                ? 'bg-gradient-to-tr from-zinc-800 via-black to-zinc-900 border-white/25 shadow-black'
-                : 'bg-gradient-to-tr from-amber-700 via-stone-900 to-amber-800 border-stone-800'
-            }`}
-          >
-            <div
-              className={`w-full h-full sharp-pill flex items-center justify-center ${
-                isDark ? 'bg-black' : 'bg-stone-900'
-              }`}
-            >
-              <span className="text-xs text-white font-bold">✦</span>
-            </div>
-          </div>
+          <SalesBrandLogo size="md" />
           <div className="flex flex-col">
             <span
               className={`font-display text-base md:text-lg font-bold tracking-tight whitespace-nowrap ${

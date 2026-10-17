@@ -11,6 +11,7 @@ import {
 import { Product, Recipe } from '../../types';
 import { ApplianceGraphic } from '../common/ApplianceGraphic';
 import { Appliance3DViewer } from '../common/Appliance3DViewer';
+import { SalesBrandLogo } from '../common/SalesBrandLogo';
 import { calculateFootprint } from '../../utils/calculations';
 
 interface PublicProductSheetViewProps {
@@ -56,17 +57,20 @@ export const PublicProductSheetView: React.FC<PublicProductSheetViewProps> = ({
             : 'border-stone-900/10'
         }`}
       >
-        <button
-          onClick={onBackToApp}
-          className={`flex items-center gap-1.5 px-3 py-1.5 sharp-box text-xs font-semibold border transition ${
-            isDark
-              ? 'border-white/10 text-zinc-300 hover:text-white bg-white/[0.05]'
-              : 'border-stone-900/15 text-stone-700 hover:text-stone-950 bg-stone-900/[0.04]'
-          }`}
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Full Catalogue</span>
-        </button>
+        <div className="flex items-center gap-3">
+          <SalesBrandLogo size="sm" />
+          <button
+            onClick={onBackToApp}
+            className={`flex items-center gap-1.5 px-3 py-1.5 sharp-box text-xs font-semibold border transition ${
+              isDark
+                ? 'border-white/10 text-zinc-300 hover:text-white bg-white/[0.05]'
+                : 'border-stone-900/15 text-stone-700 hover:text-stone-950 bg-stone-900/[0.04]'
+            }`}
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Full Catalogue</span>
+          </button>
+        </div>
 
         <div className="flex items-center gap-2">
           <button

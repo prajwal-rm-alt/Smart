@@ -14,6 +14,7 @@ import {
 import { Product, Recipe } from '../../types';
 import { ApplianceGraphic } from '../common/ApplianceGraphic';
 import { Appliance3DViewer } from '../common/Appliance3DViewer';
+import { SalesBrandLogo } from '../common/SalesBrandLogo';
 
 interface PresentationModeViewProps {
   products: Product[];
@@ -85,6 +86,7 @@ export const PresentationModeView: React.FC<PresentationModeViewProps> = ({
         }`}
       >
         <div className="flex items-center gap-3">
+          <SalesBrandLogo size="sm" />
           <span
             className={`text-xs font-bold uppercase tracking-widest px-3 py-1 sharp-box border ${
               isDark
