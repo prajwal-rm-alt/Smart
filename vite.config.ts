@@ -1,8 +1,11 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(() => {
   return {
@@ -11,14 +14,14 @@ export default defineConfig(() => {
       tailwindcss(),
       VitePWA({
         registerType: 'autoUpdate',
-        includeAssets: ['favicon.ico', 'icon.svg', 'apple-touch-icon.png'],
+        includeAssets: ['icon.svg'],
         manifest: {
           id: '/',
           name: 'Smart Appliance Showcase',
           short_name: 'Appliances',
-          description: 'iOS-inspired Liquid Glass PWA for OTGs and Air Fryers with persistent catalogue management, space calculator, and customer presentation mode.',
-          theme_color: '#0f172a',
-          background_color: '#090d16',
+          description: 'Interactive 3D & AR Smart Kitchen Appliance Showcase for OTGs and Air Fryers.',
+          theme_color: '#050505',
+          background_color: '#050505',
           display: 'standalone',
           start_url: '/',
           scope: '/',
@@ -39,13 +42,13 @@ export default defineConfig(() => {
         },
         workbox: {
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
-        },
-        devOptions: {
-          enabled: true,
-          type: 'module',
+          maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         },
       }),
     ],
+    build: {
+      chunkSizeWarningLimit: 2000,
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
